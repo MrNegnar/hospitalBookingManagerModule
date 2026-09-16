@@ -1,0 +1,11 @@
+@startuml
+
+Actor Patient
+Actor Doctor
+
+participant hospital
+
+Patient -> hospital: Request appointment
+hospital -> Patient: Confirm appointment
+
+@enduml

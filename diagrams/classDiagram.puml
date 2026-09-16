@@ -5,12 +5,20 @@ abstract class person {
   age: int
   gender: String
   personNumber: String
+  address: String
+  phoneNumber: String
+  email: String
+  bloodType: String
+  emergencyContact: String
+  maritalStatus: String
+  getperson(): person
 }
 
 class patient extends person {
   appointments: List<appointment>
   medicalRecord: String
-
+  getAppointments(): List<appointment>
+  getMedicalRecord(): String
 }
 
 class doctor extends person {
@@ -25,6 +33,25 @@ class appointment {
   note: String
 }
 
+class hospital {
+  appointments: List<appointment>
+  doctors: List<doctor>
+  patients: List<patient>
+  rooms: List<String>
+  name: String
+}
+
+class BookingSystem {
+  hospitals: List<hospital>
+  patients: List<patient>
+  doctors: List<doctor>
+  appointments: List<appointment>
+  getHospitals(): List<hospital>
+  getPatients(): List<patient>
+  getDoctors(): List<doctor>
+  getAppointments(): List<appointment>
+  setAppointments(appointments: List<appointment>): void
+}
 
 
 @enduml
