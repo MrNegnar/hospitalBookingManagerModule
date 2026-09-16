@@ -1,0 +1,30 @@
+@startuml Booking system class diagram
+
+abstract class person {
+  name: String
+  age: int
+  gender: String
+  personNumber: String
+}
+
+class patient extends person {
+  appointments: List<appointment>
+  medicalRecord: String
+
+}
+
+class doctor extends person {
+  appointments: List<appointment>
+}
+
+class appointment {
+  patient: patient
+  doctor: doctor
+  date: Date
+  time: Time
+  note: String
+}
+
+
+
+@enduml
