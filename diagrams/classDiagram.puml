@@ -9,49 +9,69 @@ abstract class person {
   phoneNumber: String
   email: String
   bloodType: String
-  emergencyContact: String
+  emergencyContacts: List<Person>
   maritalStatus: String
   getperson(): person
 }
 
-class patient extends person {
+class Patient extends person {
   appointments: List<appointment>
-  medicalRecord: String
+  medicalRecord: List<Object>
   getAppointments(): List<appointment>
-  getMedicalRecord(): String
+  getMedicalRecord(): List<Object>
 }
 
-class doctor extends person {
+class Doctor extends person {
   appointments: List<appointment>
 }
 
 class appointment {
-  patient: patient
-  doctor: doctor
+  patient: Patient
+  doctor: Doctor
   date: Date
   time: Time
   note: String
 }
 
-class hospital {
+class Hospital {
   appointments: List<appointment>
-  doctors: List<doctor>
-  patients: List<patient>
+  doctors: List<Doctor>
+  patients: List<Patient>
   rooms: List<String>
   name: String
 }
 
 class BookingSystem {
-  hospitals: List<hospital>
-  patients: List<patient>
-  doctors: List<doctor>
+  hospitals: List<Hospital>
+  patients: List<Patient>
+  doctors: List<Doctor>
   appointments: List<appointment>
-  getHospitals(): List<hospital>
-  getPatients(): List<patient>
-  getDoctors(): List<doctor>
+  getHospitals(): List<Hospital>
+  getRooms(): List<Room>
+  getPatients(): List<Patient>
+  getDoctors(): List<Doctor>
   getAppointments(): List<appointment>
   setAppointments(appointments: List<appointment>): void
 }
+
+class Room {
+  roomNumber: int
+  roomType: String
+  getRoomNumber(): int
+  setRoomNumber(roomNumber: int): void
+  getRoomType(): String
+  setRoomType(roomType: String): void
+  getAppointment(): List<appointment>
+  setAppointment(appointment: appointment): void
+}
+
+Hospital -- Room
+Hospital -- Doctor
+Hospital -- Patient
+Patient -- appointment
+Doctor -- appointment
+Room -- appointment
+Hospital -- BookingSystem
 
 
 @enduml
