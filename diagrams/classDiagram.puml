@@ -25,7 +25,7 @@ class Doctor extends person {
   appointments: List<appointment>
 }
 
-class appointment {
+class Appointment {
   patient: Patient
   doctor: Doctor
   date: Date
@@ -65,13 +65,13 @@ class Room {
   setAppointment(appointment: appointment): void
 }
 
-Hospital -- Room
-Hospital -- Doctor
-Hospital -- Patient
-Patient -- appointment
-Doctor -- appointment
-Room -- appointment
+Hospital "1" -- "..*" Room
+Hospital "1" -- "..*" Doctor
+Hospital -- "..*" Patient
+Patient "1" -- "..*" Appointment
+Doctor -- "..*" Appointment
+Room "1" -- "..*" Appointment
 Hospital -- BookingSystem
-
+BookingSystem -- "..*" Appointment
 
 @enduml

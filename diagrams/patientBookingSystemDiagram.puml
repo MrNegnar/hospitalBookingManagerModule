@@ -1,11 +1,10 @@
-@startuml
+@startuml SystemSequenceDiagram
 
 Actor Patient
-Actor Doctor
 
 participant hospital
 
-Patient -> hospital: Request appointment
+Patient -> hospital: Request reserve appointment
 hospital -> Patient: Confirm appointment
 
 @enduml
