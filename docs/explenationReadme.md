@@ -28,4 +28,4 @@ A placeholder for an exam. Contains infomation of who is the patient, doctor, wh
 ### Booking system
 The compounder of an appointment, gets a request from the patient and sets up an Appointment.
 
-## Choice of conceptual classes
+## Choice of conceptual classes - domain model

@@ -1,0 +1,34 @@
+@startuml Booking domain model
+hide circle
+
+class Patient{
+  Id
+}
+
+class Doctor{
+  Id
+}
+
+class Appointment{
+  Id
+  date
+  time
+}
+
+class Room{
+  roomNumber
+}
+
+class Hospital{
+
+}
+
+Patient -- Hospital : reserve appointment
+Hospital "1" -- "..*" Appointment
+Hospital "1" -- "..*" Doctor
+Hospital "1" -- "..*" Room
+Patient "1" -- "..*" Appointment
+Doctor "1..*" -- "..*" Appointment
+Appointment "..*" -- "1" Room
+
+@enduml
