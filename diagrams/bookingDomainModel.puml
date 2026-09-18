@@ -1,5 +1,7 @@
 @startuml Booking domain model
+left to right direction
 hide circle
+hide method
 
 class Patient{
   Id

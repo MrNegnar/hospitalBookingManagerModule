@@ -1,0 +1,28 @@
+@startuml Booking sequence diagram
+
+actor Patient
+participant Hospital
+participant Appointment
+participant Room
+participant BookingSystem
+actor Doctor
+
+
+Patient --> BookingSystem : reserve appointment
+BookingSystem --> Hospital : check availability
+Hospital --> Room : check availability
+Hospital --> Doctor : check availability
+alt Check availability
+Room --> Hospital : confirm availability
+Doctor --> Hospital : confirm availability
+Hospital --> BookingSystem : confirm availability
+opt availability confirmed
+BookingSystem --> Appointment : create appointment
+BookingSystem --> Patient : confirm reservation
+opt availability not confirmed
+BookingSystem --> Patient : inform unavailability
+end
+end
+end
+
+@enduml
